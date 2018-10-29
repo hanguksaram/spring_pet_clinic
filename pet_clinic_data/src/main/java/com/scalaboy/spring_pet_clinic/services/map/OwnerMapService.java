@@ -10,7 +10,7 @@ import java.util.Optional;
 public class OwnerMapService extends MapService<Owner> implements OwnerService {
     @Override
     public Optional<Owner> findByLastName(String lastName) {
-        return this.map.entrySet().stream().filter(owner -> owner.getValue()
-                .getLastName().equals(lastName)).map(x -> x.getValue()).findFirst();
+        return this.map.values().stream().filter(owner -> owner
+                .getLastName().equals(lastName)).findFirst();
     }
 }
