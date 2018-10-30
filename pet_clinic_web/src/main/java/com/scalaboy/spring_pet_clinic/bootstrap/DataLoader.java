@@ -1,8 +1,7 @@
 package com.scalaboy.spring_pet_clinic.bootstrap;
 
 import com.scalaboy.spring_pet_clinic.model.*;
-import com.scalaboy.spring_pet_clinic.services.CrudService;
-import com.scalaboy.spring_pet_clinic.services.OwnerService;
+import com.scalaboy.spring_pet_clinic.services.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -17,19 +16,20 @@ public class DataLoader implements CommandLineRunner {
     //жвм лол изза стирания типа дженерика спринг контекст инжектит один и тот же объект MapService в качестве реализации для дженериковых сервисов;
     //всем c# пацаны
     private final OwnerService ownerService;
-    private final CrudService<Vet, Long> vetService;
-    private final CrudService<PetType, Long> petTypeService;
-    private final CrudService<Pet, Long> petService;
-    private final CrudService<Speciality, Long> specialityService;
+    private final VetService vetService;
+    private final PetTypeService petTypeService;
+    private final PetService petService;
+    private final SpecialityService specialityService;
 
-    public DataLoader(OwnerService ownerService, CrudService<Vet, Long> vetService
-            , CrudService<PetType, Long> petTypeService, CrudService<Pet, Long> petService, CrudService<Speciality, Long> specialityService) {
+    public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService,
+                      PetService petService, SpecialityService specialityService) {
         this.ownerService = ownerService;
         this.vetService = vetService;
         this.petTypeService = petTypeService;
         this.petService = petService;
         this.specialityService = specialityService;
     }
+
 
     @Override
     public void run(String... args) throws Exception {
@@ -106,9 +106,9 @@ public class DataLoader implements CommandLineRunner {
         vetService.save(vet2);
         Set<Vet> vets =  vetService.findAll();
         System.out.println(vets.size());
-//        for (Vet vet: vets) {
-//            System.out.println(vet.getId());
-//        }
+        for (Vet vet: vets) {
+            System.out.println(vet.getId());
+        }
 
         System.out.println("Vets loaded");
     }

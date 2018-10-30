@@ -8,8 +8,9 @@ import org.springframework.stereotype.Service;
 import java.util.*;
 import java.util.stream.StreamSupport;
 
-@Service
-public class MapService<T extends BaseEntity> implements CrudService<T, Long> {
+
+
+public abstract class MapService<T extends BaseEntity> implements CrudService<T, Long> {
 
     protected Map<Long ,T>  map = new HashMap<>();
 
@@ -73,4 +74,5 @@ public class MapService<T extends BaseEntity> implements CrudService<T, Long> {
         return !map.isEmpty() ? Collections.max(map.keySet()) + 1 : 1;
 
     }
+
 }
