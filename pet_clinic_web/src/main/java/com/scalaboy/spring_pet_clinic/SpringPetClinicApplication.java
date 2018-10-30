@@ -11,7 +11,7 @@ public class SpringPetClinicApplication {
     public static void main(String[] args) {
         ApplicationContext ctx = SpringApplication.run(SpringPetClinicApplication.class, args);
 
-        FakeDataSource fakeDataSource = (FakeDataSource) ctx.getBean(FakeDataSource.class);
+        FakeDataSource fakeDataSource = ctx.getBean(FakeDataSource.class);
 ;
         System.out.println(fakeDataSource.getUrl());
         System.out.println(fakeDataSource.getUser());
