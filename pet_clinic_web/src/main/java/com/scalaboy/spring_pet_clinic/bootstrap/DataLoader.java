@@ -2,6 +2,7 @@ package com.scalaboy.spring_pet_clinic.bootstrap;
 
 import com.scalaboy.spring_pet_clinic.model.Owner;
 import com.scalaboy.spring_pet_clinic.model.Vet;
+import com.scalaboy.spring_pet_clinic.services.CrudService;
 import com.scalaboy.spring_pet_clinic.services.OwnerService;
 import com.scalaboy.spring_pet_clinic.services.VetService;
 import org.springframework.boot.CommandLineRunner;
@@ -11,9 +12,9 @@ import org.springframework.stereotype.Component;
 public class DataLoader implements CommandLineRunner {
 
     private final OwnerService ownerService;
-    private final VetService vetService;
+    private final CrudService<Vet, Long> vetService;
 
-    public DataLoader(OwnerService ownerService, VetService vetService) {
+    public DataLoader(OwnerService ownerService, CrudService<Vet, Long> vetService) {
         this.ownerService = ownerService;
         this.vetService = vetService;
     }
@@ -42,8 +43,8 @@ public class DataLoader implements CommandLineRunner {
         vetService.save(vet1);
 
         Vet vet2 = new Vet();
-        vet1.setFirstName("KIK");
-        vet1.setLastName("LALEVICH");
+        vet2.setFirstName("KIK");
+        vet2.setLastName("LALEVICH");
 
         vetService.save(vet2);
 
