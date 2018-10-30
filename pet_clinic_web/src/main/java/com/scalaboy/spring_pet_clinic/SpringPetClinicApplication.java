@@ -16,6 +16,7 @@ public class SpringPetClinicApplication {
         System.out.println(fakeDataSource.getUrl());
         System.out.println(fakeDataSource.getUser());
         System.out.println(fakeDataSource.getPassword());
+
     }
 
 }

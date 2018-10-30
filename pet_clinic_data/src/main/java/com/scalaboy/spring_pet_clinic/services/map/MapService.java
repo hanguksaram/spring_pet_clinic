@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 
 import java.util.*;
+import java.util.stream.StreamSupport;
 
 @Service
 public class MapService<T extends BaseEntity> implements CrudService<T, Long> {
@@ -23,6 +24,11 @@ public class MapService<T extends BaseEntity> implements CrudService<T, Long> {
     }
 
     @Override
+    public Optional<T> findByValue(T object) {
+        return this.map.values().stream().filter(x -> x.equals(object)).findFirst();
+    }
+
+    @Override
     public T save(T object) {
 
         if(object != null) {
@@ -35,6 +41,21 @@ public class MapService<T extends BaseEntity> implements CrudService<T, Long> {
             throw new RuntimeException("Object cannot be null");
         }
         return object;
+    }
+
+    @Override
+    public boolean saveAll(Iterable<T> objects) {
+        Long nextId = this.getNextId();
+        Long count = -1L;
+        try {
+            objects.forEach(obj -> this.map.put( + nextId, obj));
+        }
+        catch (Exception ex){
+            ex.printStackTrace();
+            return false;
+        }
+        return true;
+
     }
 
     @Override
