@@ -2,7 +2,6 @@ package com.scalaboy.spring_pet_clinic.controllers;
 
 import com.scalaboy.spring_pet_clinic.model.Vet;
 import com.scalaboy.spring_pet_clinic.services.CrudService;
-import com.scalaboy.spring_pet_clinic.services.VetService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;

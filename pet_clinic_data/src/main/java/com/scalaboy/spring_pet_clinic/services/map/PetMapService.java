@@ -1,9 +1,7 @@
 package com.scalaboy.spring_pet_clinic.services.map;
 
-import com.scalaboy.spring_pet_clinic.model.Pet;
 import com.scalaboy.spring_pet_clinic.model.PetType;
 import com.scalaboy.spring_pet_clinic.services.CrudService;
-import com.scalaboy.spring_pet_clinic.services.PetService;
 import org.springframework.stereotype.Service;
 
 @Service

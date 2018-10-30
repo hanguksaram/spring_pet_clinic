@@ -1,10 +1,10 @@
 package com.scalaboy.spring_pet_clinic.bootstrap;
 
 import com.scalaboy.spring_pet_clinic.model.Owner;
+import com.scalaboy.spring_pet_clinic.model.PetType;
 import com.scalaboy.spring_pet_clinic.model.Vet;
 import com.scalaboy.spring_pet_clinic.services.CrudService;
 import com.scalaboy.spring_pet_clinic.services.OwnerService;
-import com.scalaboy.spring_pet_clinic.services.VetService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -13,14 +13,26 @@ public class DataLoader implements CommandLineRunner {
 
     private final OwnerService ownerService;
     private final CrudService<Vet, Long> vetService;
+    private final CrudService<PetType, Long> petTypeService;
 
-    public DataLoader(OwnerService ownerService, CrudService<Vet, Long> vetService) {
+    public DataLoader(OwnerService ownerService, CrudService<Vet, Long> vetService, CrudService<PetType, Long> petTypeService) {
         this.ownerService = ownerService;
         this.vetService = vetService;
+        this.petTypeService = petTypeService;
     }
 
     @Override
     public void run(String... args) throws Exception {
+
+        PetType petType1 = new PetType();
+        petType1.setName("dog");
+        PetType saveDogPetType = this.petTypeService.save(petType1);
+
+        PetType petType2 = new PetType();
+        petType1.setName("cat");
+        PetType saveCatPetType = this.petTypeService.save(petType2);
+
+
 
         Owner owner1 = new Owner();
         owner1.setFirstName("LOL");
