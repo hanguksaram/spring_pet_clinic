@@ -87,7 +87,7 @@ public class DataLoader implements CommandLineRunner {
         pet2 = petService.save(pet2);
 
         owner1.setPets(new HashSet<>(Arrays.asList(pet1)));
-        owner1.setPets(new HashSet<>(Arrays.asList(pet2)));
+        owner2.setPets(new HashSet<>(Arrays.asList(pet2)));
         ownerService.save(owner1);
         ownerService.save(owner2);
 

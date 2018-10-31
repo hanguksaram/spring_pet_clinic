@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 
 
 import java.util.*;
-import java.util.stream.StreamSupport;
+
 
 
 
@@ -20,8 +20,8 @@ public abstract class MapService<T extends BaseEntity> implements CrudService<T,
     }
 
     @Override
-    public T findById(Long id) {
-        return map.get(id);
+    public Optional<T> findById(Long id) {
+         return Optional.ofNullable(map.getOrDefault(id, null));
     }
 
     @Override
