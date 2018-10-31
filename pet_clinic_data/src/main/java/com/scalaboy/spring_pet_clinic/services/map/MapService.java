@@ -2,13 +2,8 @@ package com.scalaboy.spring_pet_clinic.services.map;
 
 import com.scalaboy.spring_pet_clinic.model.BaseEntity;
 import com.scalaboy.spring_pet_clinic.services.CrudService;
-import org.springframework.stereotype.Service;
-
 
 import java.util.*;
-
-
-
 
 public abstract class MapService<T extends BaseEntity> implements CrudService<T, Long> {
 

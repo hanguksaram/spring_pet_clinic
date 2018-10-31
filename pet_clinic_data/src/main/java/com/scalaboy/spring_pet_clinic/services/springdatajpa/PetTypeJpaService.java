@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 @Service
-@Profile("db_peristance")
+@Profile("db_persistence")
 public class PetTypeJpaService extends JpaService<PetType> implements PetTypeService {
 
 

@@ -13,8 +13,7 @@ import java.util.Set;
 public class DataLoader implements CommandLineRunner {
 
 
-    //жвм лол изза стирания типа дженерика спринг контекст инжектит один и тот же объект MapService в качестве реализации для дженериковых сервисов;
-    //всем c# пацаны
+
     private final OwnerService ownerService;
     private final VetService vetService;
     private final PetTypeService petTypeService;
@@ -77,6 +76,10 @@ public class DataLoader implements CommandLineRunner {
         owner2.setCity("miami");
         owner2.setTelephone("123456789");
 
+
+        ownerService.save(owner1);
+        ownerService.save(owner2);
+
         Pet pet1 = new Pet();
         pet1.setPetType(petType1);
         pet1.setOwner(owner1);
@@ -85,11 +88,9 @@ public class DataLoader implements CommandLineRunner {
         pet2.setOwner(owner2);
         pet1 = petService.save(pet1);
         pet2 = petService.save(pet2);
-
         owner1.setPets(new HashSet<>(Arrays.asList(pet1)));
         owner2.setPets(new HashSet<>(Arrays.asList(pet2)));
-        ownerService.save(owner1);
-        ownerService.save(owner2);
+
 
         System.out.println("Owners loaded");
         Vet vet1 = new Vet();

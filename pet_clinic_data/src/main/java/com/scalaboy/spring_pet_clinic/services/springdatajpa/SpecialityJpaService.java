@@ -8,7 +8,7 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
 
 @Service
-@Profile("db_peristance")
+@Profile("db_persistence")
 public class SpecialityJpaService extends JpaService<Speciality> implements SpecialityService {
 
 

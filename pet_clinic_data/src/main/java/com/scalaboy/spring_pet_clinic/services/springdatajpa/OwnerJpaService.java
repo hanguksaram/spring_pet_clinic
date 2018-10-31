@@ -12,7 +12,7 @@ import java.util.*;
 
 
 @Service
-@Profile("db_persistance")
+@Profile("db_persistence")
 public class OwnerJpaService extends JpaService<Owner> implements OwnerService {
 
     private final PetRepository petRepository;

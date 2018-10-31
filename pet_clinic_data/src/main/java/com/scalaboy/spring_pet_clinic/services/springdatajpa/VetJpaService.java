@@ -9,7 +9,7 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
 
 @Service
-@Profile("db_peristance")
+@Profile("db_persistence")
 public class VetJpaService extends JpaService<Vet> implements VetService {
 
     public VetJpaService(VetRepository vetRepository) {
