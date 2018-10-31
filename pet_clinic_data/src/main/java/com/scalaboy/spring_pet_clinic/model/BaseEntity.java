@@ -1,9 +1,17 @@
 package com.scalaboy.spring_pet_clinic.model;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
 import java.io.Serializable;
 
-public class BaseEntity implements Serializable {
 
+@MappedSuperclass //inheritance without creating table of base class
+public abstract class BaseEntity implements Serializable {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     public Long getId() {
