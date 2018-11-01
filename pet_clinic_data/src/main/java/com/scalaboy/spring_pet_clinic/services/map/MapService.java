@@ -42,9 +42,12 @@ public abstract class MapService<T extends BaseEntity> implements CrudService<T,
     @Override
     public boolean saveAll(Iterable<T> objects) {
         Long nextId = this.getNextId();
-        Long count = -1L;
+        Iterator<T> iterator = objects.iterator();
         try {
-            objects.forEach(obj -> this.map.put( + nextId, obj));
+            while (iterator.hasNext()) {
+                this.map.put(nextId++ , iterator.next());
+            }
+
         }
         catch (Exception ex){
             ex.printStackTrace();
